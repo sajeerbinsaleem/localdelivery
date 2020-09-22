@@ -5,7 +5,7 @@ import "./shop.scss";
 
 // import DatePicker from 'react-datepicker';
 // import { Dropdown } from 'react-bootstrap';
-
+const appurl = 'http://18.220.248.67:5000/';
 export class ShopCategory extends Component {
   constructor(props) {
     super(props);
@@ -38,7 +38,7 @@ fetchUsers (){
       })
 }
 fetchCategories (){
-    axios.get('http://localhost:5000/ShopCategories')
+    axios.get(appurl+'ShopCategories')
         .then(res => {
           const categories = res.data;
           this.setState({ categories:categories.categories });
@@ -54,7 +54,7 @@ alert('ttt')
       description : this.state.categoryDescription
     }
   }
-  axios.post('http://localhost:5000/ShopCategories',categories)
+  axios.post(appurl+'ShopCategories',categories)
       .then(res => {
         this.fetchCategories();
         this.setState({ show: false });
@@ -72,7 +72,7 @@ fetchLocation (){
     console.log(pos)
     var position = [crd.latitude,crd.longitude];
     console.log('position',position)
-    axios.post('http://localhost:5000/updateLocation',{position:position})
+    axios.post(appurl+'updateLocation',{position:position})
     .then(res => {
       console.log(res.data);
     })

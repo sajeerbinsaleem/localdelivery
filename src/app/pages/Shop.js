@@ -6,6 +6,7 @@ import PlacesAutocomplete, {
   geocodeByAddress,
   getLatLng,
 } from 'react-places-autocomplete';
+const appurl = 'http://18.220.248.67:5000/';
 
 // import DatePicker from 'react-datepicker';
 // import { Dropdown } from 'react-bootstrap';
@@ -80,14 +81,14 @@ fetchUsers (){
       })
 }
 fetchCategories (){
-    axios.get('http://localhost:5000/shope')
+    axios.get(appurl+'shope')
         .then(res => {
           const categories = res.data;
           this.setState({ categories:categories.shops });
         })
   }
 fetchShopCategories (){
-    axios.get('http://localhost:5000/ShopCategories')
+    axios.get(appurl+'ShopCategories')
         .then(res => {
           const categories = res.data;
           this.setState({ shopCategories:categories.categories });
@@ -105,7 +106,7 @@ fetchLocation (){
     console.log(pos)
     var position = [crd.latitude,crd.longitude];
     console.log('position',position)
-    axios.post('http://localhost:5000/updateLocation',{position:position})
+    axios.post(appurl+'updateLocation',{position:position})
     .then(res => {
       console.log(res.data);
     })
