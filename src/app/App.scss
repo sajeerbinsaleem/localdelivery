@@ -2,6 +2,7 @@
 
 /* === Plugin styles === */
 
+@import "~bootstrap/scss/bootstrap";
 
 @import '~react-datepicker/dist/react-datepicker.css';
 
@@ -11,7 +12,6 @@
 @import "../assets/styles/variables";
 @import "~compass-mixins/lib/compass";
 @import "~compass-mixins/lib/animate";
-@import "~bootstrap/scss/bootstrap";
 @import "../assets/styles/fonts";
 @import "../assets/styles/functions";
 
